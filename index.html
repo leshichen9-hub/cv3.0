@@ -798,9 +798,9 @@
                 { src: "https://picsum.photos/id/20/400/400", alt: "2026", caption: "2026" }
             ];
             let sceneryPhotos = [
-                { src: "https://picsum.photos/id/15/400/400", alt: "黄山", caption: "黄山·云巅" },
-                { src: "https://picsum.photos/id/104/400/400", alt: "海岸", caption: "东极岛·蓝" },
-                { src: "https://picsum.photos/id/29/400/400", alt: "城市", caption: "魔都天际线" }
+                { src: "https://picsum.photos/id/15/400/400", alt: "黄山", caption: "黄山" },
+                { src: "https://picsum.photos/id/104/400/400", alt: "海岸", caption: "济州岛" },
+                { src: "https://picsum.photos/id/29/400/400", alt: "城市", caption: "大连" }
             ];
 
             // 从 localStorage 加载照片
@@ -809,6 +809,15 @@
             if (savedPeople) peoplePhotos = JSON.parse(savedPeople);
             if (savedScenery) sceneryPhotos = JSON.parse(savedScenery);
 
+            // ========== 修改这里 ==========
+// 如果想强制使用默认图片，注释掉这两行：
+// if (savedPeople) peoplePhotos = JSON.parse(savedPeople);
+// if (savedScenery) sceneryPhotos = JSON.parse(savedScenery);
+
+// 或者清空localStorage后重新加载：
+localStorage.removeItem('gallery_people');
+localStorage.removeItem('gallery_scenery');
+// ============================
             function buildGallery(containerId, photosArray, storageKey, typeName) {
                 const container = document.getElementById(containerId);
                 if (!container) return;
